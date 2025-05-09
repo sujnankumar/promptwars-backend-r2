@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes.auth import router as auth_router
+from routes.tournament import router as tournament_router
+from routes.match import router as match_router
 
 app = FastAPI()
 
@@ -13,3 +15,5 @@ app.add_middleware(
 )
 
 app.include_router(auth_router)
+app.include_router(tournament_router)
+app.include_router(match_router)
