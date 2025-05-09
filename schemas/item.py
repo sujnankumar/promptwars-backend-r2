@@ -1,5 +1,1 @@
-from pydantic import BaseModel
-
-class Item(BaseModel):
-    name: str
-    description: str = None
+# This file is intentionally left blank. All default item schemas have been removed.

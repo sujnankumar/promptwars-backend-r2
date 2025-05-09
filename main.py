@@ -1,6 +1,15 @@
 from fastapi import FastAPI
-from routes.items import router as items_router
+from fastapi.middleware.cors import CORSMiddleware
+from routes.auth import router as auth_router
 
 app = FastAPI()
 
-app.include_router(items_router)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Change this to your frontend URL in production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(auth_router)
